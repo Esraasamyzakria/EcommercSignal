@@ -1,0 +1,87 @@
+:host {
+  display: block;
+  overflow-x: hidden;
+}
+
+.mySwiper {
+  width: 100%;
+  height: 500px;
+}
+
+/* تخصيص أزرار التنقل - الأجزاء الداخلية لـ Swiper Web Component */
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  background-color: #FEF3C7;
+  color: #92410e; /* لون متناسق بدلاً من المتغير لو مش متعرف */
+  border-radius: 50%;
+  width: 35px; /* تكبير الحجم قليلاً ليكون مناسباً للضغط */
+  height: 35px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next){
+  background-color: #FEF3C7;
+  color: var(--color-secondary);
+  border-radius: 50%;
+  padding: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+
+.item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.item-1 {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3)), 
+  url('https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+}
+
+.item-2 {
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(59, 130, 246, 0.3)), 
+  url('https://images.pexels.com/photos/3183146/pexels-photo-3183146.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+}
+
+.item-3 {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+  url('https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+}
+
+.item-4 {
+  background-image: linear-gradient(to right, rgba(6, 78, 59, 0.9), rgba(16, 185, 129, 0.3)), 
+  url('https://images.pexels.com/photos/6775268/pexels-photo-6775268.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+}
+
+.item-5 {
+  background-image: linear-gradient(to right, rgba(146, 65, 14, 0.8), rgba(217, 119, 6, 0.5)), 
+  url('/asset/home-slider-1.d79601a8.png');
+}
+
+/* إخفاء العناصر قبل تفعيل AOS لمنع الـ Flash */
+[data-aos] {
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+.item h2 {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+:root {
+  --swiper-navigation-color: #fff;
+  --swiper-pagination-color: #fff;
+  --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.5);
+  --swiper-pagination-bullet-size: 10px;
+}
