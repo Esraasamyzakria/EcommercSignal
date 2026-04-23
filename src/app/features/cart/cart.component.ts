@@ -1,8 +1,9 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
 import { CartService } from '../../core/services/cart/cart.service';
 import { Cart } from '../../core/models/cart.interface';
 import { ToastrService } from 'ngx-toastr';
 import { RouterLink } from "@angular/router";
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -12,11 +13,15 @@ import { RouterLink } from "@angular/router";
 })
 export class CartComponent {
   _cartService=inject(CartService)
+  _platformId=inject(PLATFORM_ID)
   _toastrService=inject(ToastrService)
   productcart=signal<Cart>({}as Cart)
 
   ngOnInit(){
+    if(isPlatformBrowser(this._platformId)){
 this.getloggedcart()
+    }
+
   
   }
   getloggedcart():void{

@@ -71,7 +71,7 @@
             <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden h-10">
               <button
               (click)="update(cart.product.id,cart.count-1)"
-                class="px-3 h-full text-gray-500 hover:bg-gray-100 transition-colors focus:outline-hidden"
+                class="px-3 h-full cursor-pointer text-gray-500 hover:bg-gray-100 transition-colors focus:outline-hidden"
               >
                 <i class="fa-solid fa-minus text-xs"></i>
               </button>
@@ -80,7 +80,7 @@
 
               <button
               (click)="update(cart.product.id,cart.count+1)"
-                class="px-3 h-full bg-primary text-white hover:bg-amber-600 transition-colors focus:outline-hidden"
+                class="px-3 h-full bg-primary cursor-pointer text-white hover:bg-amber-600 transition-colors focus:outline-hidden"
               >
                 <i class="fa-solid fa-plus text-xs"></i>
               </button>
@@ -95,7 +95,7 @@
 
             <button
               (click)="removeProductFromCart(cart.product.id)"
-              class="w-10 h-10 flex items-center justify-center bg-red-50 text-red-500 rounded-lg hover:bg-red-100 transition-colors focus:outline-hidden"
+              class="w-10 h-10 flex items-center cursor-pointer justify-center bg-red-50 text-red-500 rounded-lg hover:bg-red-100 transition-colors focus:outline-hidden"
             >
               <i class="fa-regular fa-trash-can"></i>
             </button>
@@ -108,13 +108,13 @@
         <div class="flex items-center justify-between pt-4 mt-2">
           <button
             routerLink="/"
-            class="text-prbg-primary font-medium hover:underline flex items-center gap-2 focus:outline-hidden"
+            class="text-prbg-primary font-medium cursor-pointer hover:underline flex items-center gap-2 focus:outline-hidden"
           >
             <i class="fa-solid fa-arrow-left-long"></i> Continue Shopping
           </button>
           <button
           (click)="clearProductInCart()"
-            class="text-gray-400 hover:text-red-500 font-medium flex items-center gap-2 transition-colors focus:outline-hidden"
+            class="text-gray-400 hover:text-red-500 cursor-pointer font-medium flex items-center gap-2 transition-colors focus:outline-hidden"
           >
             <i class="fa-solid fa-trash-can text-sm"></i> Clear all items
           </button>
@@ -169,7 +169,8 @@
             </button> -->
 
             <button
-              class="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-amber-700 transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-2 focus:outline-hidden hover:-translate-y-0.5 transform duration-200"
+              [routerLink]="['/checkout',productcart().data._id]"
+              class="w-full py-4 bg-primary cursor-pointer text-white font-bold rounded-xl hover:bg-amber-700 transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-2 focus:outline-hidden hover:-translate-y-0.5 transform duration-200"
             >
               <i class="fa-solid fa-lock"></i> Secure Checkout
             </button>
@@ -189,7 +190,9 @@
 
         <div class="text-center mt-6 lg:hidden">
           <button
-            class="text-prbg-primary font-medium hover:underline flex items-center justify-center gap-2 mx-auto focus:outline-hidden"
+            routerLink="/"
+        
+            class="text-prbg-primary cursor-pointer font-medium hover:underline flex items-center justify-center gap-2 mx-auto focus:outline-hidden"
           >
             <i class="fa-solid fa-arrow-left-long"></i> Continue Shopping
           </button>
@@ -214,7 +217,7 @@
 
   <button
   routerLink="/"
-    class="inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-amber-600 hover:-translate-y-0.5 focus:ring-4 focus:ring-emerald-100 focus:outline-hidden shadow-sm hover:shadow-md cursor-pointer"
+    class="inline-flex items-center  justify-center gap-3 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all duration-200 hover:bg-amber-600 hover:-translate-y-0.5 focus:ring-4 focus:ring-emerald-100 focus:outline-hidden shadow-sm hover:shadow-md cursor-pointer"
   >
     Start Shopping
     <i class="fa-solid fa-arrow-right"></i>
