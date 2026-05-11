@@ -42,22 +42,22 @@ swiper-container::part(button-next){
 
 .item-1 {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3)), 
-  url('https://images.pexels.com/photos/1036856/pexels-photo-1036856.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+  url('/asset/side1.jpeg');
 }
 
 .item-2 {
   background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(59, 130, 246, 0.3)), 
-  url('https://images.pexels.com/photos/3183146/pexels-photo-3183146.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+  url('/asset/side2.webp');
 }
 
 .item-3 {
   background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-  url('https://images.pexels.com/photos/3965548/pexels-photo-3965548.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+  url('/asset/side3.webp');
 }
 
 .item-4 {
   background-image: linear-gradient(to right, rgba(6, 78, 59, 0.9), rgba(16, 185, 129, 0.3)), 
-  url('https://images.pexels.com/photos/6775268/pexels-photo-6775268.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1');
+  url('/asset/side4.jpeg');
 }
 
 .item-5 {

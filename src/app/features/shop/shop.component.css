@@ -1,0 +1,53 @@
+::ng-deep pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* كل زر */
+::ng-deep pagination-controls .ngx-pagination li {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* أزرار الصفحات */
+::ng-deep pagination-controls .ngx-pagination a,
+::ng-deep pagination-controls .ngx-pagination button {
+  padding: 6px 14px;
+  border-radius: 10px;
+    margin-right: 10px;
+  margin-left: 10px;
+  background: #f3f4f6; /* gray-100 */
+  color: #242424;
+  transition: 0.2s;
+}
+
+/* hover */
+::ng-deep pagination-controls .ngx-pagination a:hover,
+::ng-deep pagination-controls .ngx-pagination button:hover {
+  background: #d1d5db; /* gray-300 */
+  transform: translateY(-1px);
+}
+
+/* الصفحة الحالية */
+::ng-deep pagination-controls .ngx-pagination .current {
+  background: var(--color-secondary); /* لون قريب من secondary بتاعك */
+  color: white;
+  border-radius: 10px;
+  padding: 6px 14px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* الأسهم */
+::ng-deep pagination-controls .ngx-pagination .pagination-previous a,
+::ng-deep pagination-controls .ngx-pagination .pagination-next a {
+  font-weight: 600;
+  background: var(--color-background);
+  color: var(--color-primary)
+}
+
+/* disabled */
+::ng-deep pagination-controls .ngx-pagination .disabled {
+  opacity: 0.4;
+}

@@ -48,7 +48,7 @@ export const routes: Routes = [
     title: 'categoryDetails',
   },
   {
-    path: 'order',
+    path: 'allorders',
     canActivate:[authGuard],
     loadComponent: () =>
       import('./features/orders/orders.component').then(m => m.OrdersComponent),

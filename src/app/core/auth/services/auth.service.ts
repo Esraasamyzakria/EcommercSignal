@@ -1,20 +1,23 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
-
+   import { jwtDecode } from "jwt-decode";
+import { isPlatformBrowser } from '@angular/common';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   _httpClient=inject(HttpClient);
+  _PLATFORM_ID=inject(PLATFORM_ID);
   _router=inject(Router);
 isloading=signal<boolean>(false);
 
 signout():void{
   localStorage.removeItem('token');
   localStorage.removeItem('username');
+  localStorage.removeItem('setData');
   this.isloading.set(false);
   this._router.navigate(['/login']);
 
@@ -33,5 +36,19 @@ signout():void{
   }
   ResetPassword(date:object):Observable<any>{
     return this._httpClient.put(environment.baseurl +`/api/v1/auth/resetPassword`,date);
+  }
+
+  decodeUser(){
+ 
+if(isPlatformBrowser(this._PLATFORM_ID)){
+const token = localStorage.getItem('token');
+if(token){
+  const decoded = jwtDecode(token);
+  localStorage.setItem('setData',JSON.stringify(decoded));
+  console.log(decoded);
+}
+}
+
+
   }
 }

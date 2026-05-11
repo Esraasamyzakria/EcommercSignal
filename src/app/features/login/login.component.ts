@@ -37,6 +37,7 @@ submitlogin():void{
                        localStorage.setItem('token',response.token)
          localStorage.setItem('username',JSON.stringify(response.user))
          this._authService.isloading.set(true);
+         this._authService.decodeUser()
          console.log(this._authService.isloading());
               this._router.navigate(['/'])
        }

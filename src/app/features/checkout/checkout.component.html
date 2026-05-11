@@ -15,7 +15,7 @@
       </div>
       <a
         routerLink="/cart"
-        class="text-amring-amber-600 hover:text-amring-amber-800 font-medium flex items-center gap-2 transition-colors"
+        class="text-amring-amber-600   cursor-pointer hover:text-amring-amber-800 font-medium flex items-center gap-2 transition-colors"
       >
         <i class="fa-solid fa-arrow-left-long"></i>
         Back to Cart
@@ -26,8 +26,8 @@
     <div class="space-y-6">
       <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <div class="p-6">
-          <form class="space-y-5">
-            <div>
+          <form class="space-y-5" [formGroup]="checkoutforms" (ngSubmit)="submitform()">
+            <div formGroupName="shippingAddress">
               <!-- city  -->
               <div>
                 <label for="city" class="block mb-2 text-sm font-medium text-gray-900"
@@ -44,6 +44,7 @@
                     id="city"
                     class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amring-amber-500 block w-full ps-10 p-3"
                     placeholder="e.g. Cairo, Alexandria, Giza"
+                    formControlName="city"
                     required
                   />
                 </div>
@@ -66,6 +67,7 @@
                     rows="3"
                     class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amring-amber-500 block w-full ps-10 p-3"
                     placeholder="Street name, building number, floor, apartment..."
+                    formControlName="details"
                     required
                   ></textarea>
                 </div>
@@ -87,6 +89,7 @@
                     id="phone"
                     class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amring-amber-500 block w-full ps-10 p-3"
                     placeholder="01xxxxxxxxx"
+                    formControlName="phone"
                     required
                   />
                   <div
@@ -103,12 +106,14 @@
                   <div class="space-y-4">
                     <label for="payment-cod" class="block relative">
                       <input
+                      #ref1
                         type="radio"
                         id="payment-cod"
                         name="payment_method"
                         value="cash"
                         class="peer sr-only"
                         checked
+                        (change)="changeFlag(ref1)"
                       />
 
                       <div
@@ -134,11 +139,13 @@
 
                     <label for="payment-card" class="block relative">
                       <input
+                      #ref2
                         type="radio"
                         id="payment-card"
                         name="payment_method"
-                        value="card"
+                        value="visa"
                         class="peer sr-only"
+                        (change)="changeFlag(ref2)"
                       />
 
                       <div
@@ -176,7 +183,7 @@
                   <div class="pt-2">
                     <button
                       type="submit"
-                      class="w-full py-3.5 px-4 rounded-lg bg-border-amber-600 text-white font-semibold text-sm flex items-center justify-center gap-2 hover:bg-border-amber-700 transition-colors hidden group-has-[#payment-cod:checked]:flex"
+                      class="w-full py-3.5 px-4 rounded-lg cursor-pointer bg-amber-600  text-white font-semibold text-sm items-center justify-center gap-2 hover:bg-amber-700 transition-colors hidden group-has-[#payment-cod:checked]:flex"
                     >
                       <i class="fas fa-shopping-bag"></i>
                       Place Order
@@ -184,7 +191,7 @@
 
                     <button
                       type="submit"
-                      class="w-full py-3.5 px-4 rounded-lg bg-border-amber-600 text-white font-semibold text-sm flex items-center justify-center gap-2 hover:bg-border-amber-700 transition-colors hidden group-has-[#payment-card:checked]:flex"
+                      class="w-full py-3.5 px-4 rounded-lg cursor-pointer bg-amber-600  text-white font-semibold text-sm items-center justify-center gap-2 hover:bg-amber-700 transition-colors hidden group-has-[#payment-card:checked]:flex"
                     >
                       <i class="fas fa-shield-alt"></i>
                       Proceed to Payment

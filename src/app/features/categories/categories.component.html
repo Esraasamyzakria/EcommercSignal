@@ -1,1 +1,20 @@
-<p>categories works!</p>
+<section class="py-10">
+  <div class="container">
+    <app-section-title [firstPart]="'Shop By '" [secondPart]="'Category '"></app-section-title>
+    <div class="grid gap-6 mt-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        @for (category of categorylist(); track category._id) {
+                  <div
+        class="rounded-3xl shadow-xl text-center hover:scale-105 transition-all  bg-amber-50 p-7 flex flex-col items-center group"
+      >
+        <img
+          [src]="category.image"
+          [alt]="category.name"
+          srcset=""
+          class="rounded-full size-24 group-hover:rotate-180 transition-all duration-500"
+        />
+        <h3 class="text-lg font-bold mt-4 text-primary">{{ category.name }}</h3>
+      </div>
+        }
+
+    </div>
+  </div>

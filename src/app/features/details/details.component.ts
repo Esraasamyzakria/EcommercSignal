@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../core/services/product/product.service';
 import { Product } from '../../core/models/product.interface';
@@ -8,6 +8,7 @@ import { Product } from '../../core/models/product.interface';
   imports: [],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DetailsComponent implements OnInit {
   _activatedRoute=inject(ActivatedRoute);

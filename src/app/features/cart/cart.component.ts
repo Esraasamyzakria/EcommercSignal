@@ -33,6 +33,7 @@ this.getloggedcart()
   removeProductFromCart(prodId:string):void{
     this._cartService.removeProductFromCart(prodId).subscribe((res)=>{
       console.log(res);
+      this._cartService.cartCount.set(res.numOfCartItems);
       this.productcart.set(res)
       this._toastrService.success('Product removed from cart successfully');
     })
@@ -46,6 +47,7 @@ this.getloggedcart()
   }
   clearProductInCart():void{
     this._cartService.clearProductInCart().subscribe((res)=>{
+       this._cartService.cartCount.set(res.numOfCartItems);
       console.log(res);
       this.productcart.set(res)
       this._toastrService.success('Cart cleared successfully');
