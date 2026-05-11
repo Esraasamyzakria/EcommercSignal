@@ -1,20 +1,7 @@
 {
   "version": 2,
-  "framework": "angular",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/server.ts"
-    }
+  "public": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
