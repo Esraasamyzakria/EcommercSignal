@@ -21,24 +21,27 @@ logged=computed(()=> this._authService.isloading())
 count=computed(()=> this._cartService.cartCount())
   ngOnInit(): void {
 
-    if(isPlatformBrowser(this._platformId)){
-      this.getcurrntacount()
-      if(localStorage.getItem('token')){
-      this._authService.isloading.set(true);
+    if (isPlatformBrowser(this._platformId)) {
+      if (localStorage.getItem('token')) {
+        this._authService.isloading.set(true);
+        this.getcurrntacount();
       }
     }
     this.flowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
     });
   }
-  logout():void{
+  logout(): void {
     this._authService.signout();
   }
-  getcurrntacount():void{
+  getcurrntacount(): void {
     this._cartService.getproductcart().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this._cartService.cartCount.set(res.numOfCartItems);
+      },
+      error: () => {
+        this._cartService.cartCount.set(0);
       }
-    })
+    });
   }
 }
