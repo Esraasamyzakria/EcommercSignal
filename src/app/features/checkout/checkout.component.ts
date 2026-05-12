@@ -42,25 +42,24 @@ this._activatedRoute.paramMap.subscribe((params) => {
       console.log('cash')
       this._cartService.createcashorder(this.cartid(), this.checkoutforms.value).subscribe({
         next:(res)=>{
-console.log(res)
-if(res.status==="success"){
-
-this._router.navigate(['/allorders'])
-}
+          console.log(res)
+          if(res.status === "success"){
+            this._cartService.cartCount.set(0);
+            this._router.navigate(['/allorders']);
+          }
         }
-
       })
     }
     else{
-          this._cartService.createvisaorder(this.cartid(), this.checkoutforms.value).subscribe({
+      this._cartService.createvisaorder(this.cartid(), this.checkoutforms.value).subscribe({
         next:(res)=>{
-console.log(res)
-if(res.status==="success"){
-window.open(res.session.url,'_self')
-this._router.navigate(['/allorders'])
-}
+          console.log(res)
+          if(res.status === "success"){
+            window.open(res.session.url,'_self')
+            this._cartService.cartCount.set(0);
+            this._router.navigate(['/allorders']);
+          }
         }
-
       })
       console.log('visa')
     }
