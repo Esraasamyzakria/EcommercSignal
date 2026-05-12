@@ -72,17 +72,18 @@
 
        
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+        <div class=" pt-2">
           <button
+            (click)="addProductToCart(productDetails()._id)"
             class="w-full cursor-pointer bg-secondary text-background hover:bg-white hover:text-secondary hover:border hover:border-secondary  font-bold py-3.5 rounded-xl  transition-all flex items-center justify-center gap-2 shadow-lg shadow-bbg-background"
           >
             <i class="fas fa-shopping-cart"></i> Add to Cart
           </button>
-          <button
+          <!-- <button
             class="f border cursor-pointer bg-white text-secondary  border-secondary py-3 rounded-xl font-bold  hover:bg-secondary hover:text-bbg-background transition-all"
           >
             <i class="far fa-heart"></i> Add to Wishlist
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
